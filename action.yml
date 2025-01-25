@@ -1,9 +1,9 @@
-name: 'XeLaTeX Action'
-description: 'Compile LaTeX documents using XeLaTeX with full TeXLive support'
+name: 'XeLaTeX GH Action'
+description: 'Compile LaTeX documents using XeLaTeX with full TeXLive support to PDF'
 author: 'Voioo'
 branding:
   icon: 'book'
-  color: 'blue'
+  color: 'white'
 
 inputs:
   file:
