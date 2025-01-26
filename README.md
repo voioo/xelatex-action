@@ -1,11 +1,17 @@
 # XeLaTeX GitHub Action
 
-A minimal and efficient GitHub Action to compile LaTeX documents using XeLaTeX. Built on Debian Sid with full TeXLive support.
+A minimal and efficient GitHub Action to compile LaTeX documents using XeLaTeX. Built on Alpine Linux with essential TeXLive support.
 
 ## Features
 
-- Full TeXLive distribution
-- Font Awesome support
+- Essential TeXLive distribution optimized for size and performance
+- Comprehensive font support:
+  - Font Awesome
+  - Microsoft Core Fonts
+  - Noto fonts (including CJK)
+  - Liberation fonts
+  - DejaVu fonts
+- Double-pass compilation for proper references
 - Simple configuration
 - Artifact upload support
 
@@ -68,6 +74,18 @@ jobs:
           path: |
             main.pdf
             appendix.pdf
+```
+
+### Font Configuration in LaTeX
+
+```latex
+\usepackage{fontspec}
+\usepackage{fontawesome}
+
+% Example font configurations
+\setmainfont{Liberation Serif}
+\setsansfont{Liberation Sans}
+\setmonofont{Liberation Mono}
 ```
 
 ## License
