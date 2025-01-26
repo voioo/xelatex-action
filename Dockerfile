@@ -8,14 +8,9 @@ RUN apt-get update && \
     apt-get install -y --no-install-recommends \
     texlive-full \
     fonts-font-awesome \
-    fonts-rubik \
-    fonts-lmodern \
-    fonts-texgyre \
-    fonts-dejavu-core \
     && apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-# Refresh font cache
 RUN luaotfload-tool --update
 
 COPY entrypoint.sh /entrypoint.sh
