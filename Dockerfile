@@ -4,29 +4,23 @@ LABEL org.opencontainers.image.source="https://github.com/voioo/xelatex-action"
 LABEL org.opencontainers.image.description="XeLaTeX compiler with essential TeXLive distribution"
 LABEL org.opencontainers.image.licenses="0BSD"
 
+# Install required packages
 RUN apk add --no-cache \
-    texlive-xetex \
-    texlive-latex \
-    texlive-latexextra \
-    texlive-science \
-    texlive-fontsextra \
-    msttcorefonts-installer \
+    texlive \
+    texmf-dist \
     fontconfig \
+    msttcorefonts-installer \
+    font-awesome-free \
     font-noto \
-    font-noto-cjk \
-    font-noto-extra \
+    font-noto-emoji \
     font-dejavu \
-    font-liberation \
-    ttf-font-awesome \
     ttf-liberation \
-    ttf-dejavu \
     && update-ms-fonts \
-    && fc-cache -f
+    && fc-cache -fv
 
-RUN mkdir -p /usr/share/texmf-dist/fonts/opentype
-RUN mktexlsr
-
-RUN luaotfload-tool --update
+RUN mkdir -p /usr/share/texmf-dist/fonts/opentype && \
+    mktexlsr && \
+    luaotfload-tool --update
 
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
